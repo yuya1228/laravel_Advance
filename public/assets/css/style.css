@@ -1,0 +1,583 @@
+body {
+    list-style: none;
+    margin-left: 5%;
+    background-color: rgb(231, 231, 231);
+}
+
+header {
+    padding: 30px 4% 10px;
+    width: 80%;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    align-items: center;
+}
+
+.shop_title {
+    display: inline-block;
+    margin-left: 20%;
+}
+
+.menu-btn {
+    position: fixed;
+    z-index: 2;
+    width: 6%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+    color: #fff;
+}
+
+/*----------------------------
+* メニュー本体
+*----------------------------*/
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.menu__item {
+    width: 100%;
+    height: auto;
+    padding: .5em 1em;
+    text-align: center;
+    color: blue;
+    box-sizing: border-box;
+}
+
+.menu {
+    transform: translateX(100vw);
+    transition: all .3s linear;
+}
+
+.menu.is-active {
+    transform: translateX(0);
+}
+
+/* ホームページ */
+.shop_title {
+    margin: 0;
+    padding: 0;
+    color: blue;
+}
+
+.shop_search {
+    margin-left: 50%;
+    display: inline-block;
+}
+
+.shop_search h1 {
+    margin-left: 20%;
+    ;
+}
+
+.shop_search table {
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px rgb(185, 185, 185);
+    height: 40px;
+    width: 30px;
+}
+
+.shop_search select {
+    border: none;
+    font-size: 13px;
+}
+
+.shop_search input {
+    border: none;
+    width: 300px;
+}
+
+.shop_box li {
+    font-size: 12px;
+    margin-left: 5%;
+}
+
+h3 {
+    margin-left: 5%;
+}
+
+.shop_box img {
+    width: 100%;
+    height: 185px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.shop_detail {
+    background-color: blue;
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 13px;
+    width: 100px;
+    height: 30px;
+    padding: 1%;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.like_button {
+    margin-left: 35%;
+    margin-top: 4%;
+}
+
+.shop_button {
+    display: flex;
+    align-items: center;
+}
+
+/* 登録完了ページ */
+.shop_box {
+    box-shadow: 4px 4px 4px rgb(185, 185, 185);
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    width: 22%;
+    margin: 1%;
+    padding-bottom: 1%;
+}
+
+.thanks_message {
+    text-align: center;
+    background-color: white;
+    display: inline-block;
+    width: 35%;
+    font-weight: lighter;
+    margin-left: 30%;
+    margin-top: 15%;
+    padding: 6% 1%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(196, 195, 195);
+}
+
+.log_button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10%;
+    padding: 2%;
+}
+
+.register_button {
+    background-color: blue;
+    color: white;
+    padding: 2% 5%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10%;
+}
+
+.register_message {
+    text-align: center;
+    background-color: white;
+    display: inline-block;
+    margin-left: 30%;
+    margin-top: 10%;
+    padding: 6% 5%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(196, 195, 195);
+}
+
+/* 詳細ページ */
+.detail_container {
+    display: flex;
+    margin-left: 5%;
+}
+
+.shop_reserve {
+    display: inline-block;
+    width: 80%;
+}
+
+.back_icon {
+    display: flex;
+}
+
+.back_icon button {
+    box-shadow: 5px 5px 5px rgb(196, 195, 195);
+    border-radius: 5px;
+    padding: 5px 8px;
+    border: none;
+}
+
+.shop_image {
+    width: 100%;
+}
+
+.reserve {
+    background-color: rgb(3, 114, 217);
+    display: inline-block;
+    border-radius: 5px;
+    width: 80%;
+    margin-right: 30%;
+    margin-left: 10%;
+}
+
+
+.reserve input {
+    width: 40%;
+    border-radius: 5px;
+    border: none;
+}
+
+.reserve select {
+    border: none;
+    border-radius: 5px;
+    width: 90%;
+    height: 4%;
+    margin-top: 3%;
+    ;
+}
+
+.reserve li {
+    list-style: none;
+}
+
+.reserve h2 {
+    color: white;
+    margin-left: 6%;
+}
+
+
+.reserve_information {
+    background-color: rgba(192, 237, 255, 0.2);
+    display: block;
+    border-radius: 5px;
+    margin: 5% 7%;
+    padding: 3%;
+    color: white;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+
+.reserve_start {
+    padding: 5% 50%;
+    margin-top: 30%;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+    background-color: blue;
+    color: white;
+}
+
+.card {
+    width: 50%;
+    margin: 25%;
+}
+
+.form-control {
+    border: none;
+}
+
+/* マイページ */
+.information_title {
+    margin-left: 5%;
+}
+
+.like_reserve {
+    display: flex;
+}
+
+.reserve_menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5%;
+}
+
+.reserve_box {
+    box-shadow: 4px 4px 4px rgb(185, 185, 185);
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    width: 22%;
+    margin: 1%;
+    padding-bottom: 1%;
+}
+
+reserve_container {
+    position: relative;
+}
+
+.reserve_box img {
+    width: 100%;
+    height: 185px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.reserve_delete {
+    background-color: rgb(57, 57, 255);
+   position: absolute;
+    border: none;
+    outline: none;
+    margin-left: 23%;
+    bottom: 63.5%;
+}
+
+.information {
+    background-color: rgb(57, 57, 255);
+    box-shadow: 5px 5px 5px rgb(196, 195, 195);
+    border: none;
+    display: inline-block;
+    border-radius: 5px;
+    width: 33%;
+    height: 27%;
+}
+
+.information h4 {
+    color: white;
+    display: inline-block;
+    margin-left: 5%;
+    font-weight: lighter;
+}
+
+.login_user {
+    display: inline-block;
+    margin-left: 46.7%;
+}
+
+.like_shops {
+    margin-left: 35%;
+}
+
+.likes_button {
+    margin-left: 35%;
+    margin-top: 4%;
+}
+
+.shops_button {
+    display: flex;
+    align-items: center;
+}
+
+.reserve_status {
+    margin-left: 5%;
+    border-spacing: 10px 15px;
+}
+
+.reserve_status th {
+    color: white;
+    font-weight: lighter;
+}
+
+.reserve_status td {
+    color: white;
+    padding-left: 30%;
+    ;
+}
+
+/* 店舗評価ページ */
+.rate-form {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.rate-form input[type=radio] {
+    display: none;
+}
+
+.rate-form label {
+    position: relative;
+    padding: 0 5px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.rate-form label:hover {
+    color: #ffcc00;
+}
+
+.rate-form label:hover~label {
+    color: #ffcc00;
+}
+
+.rate-form input[type=radio]:checked~label {
+    color: #ffcc00;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width:768px) {
+
+    /* ホームページ */
+    h1 {
+        margin-left: 20%;
+    }
+
+    .shop_search {
+        display: inline-block;
+        width: 20%;
+    }
+
+    .shop_search input {
+        width: 200px;
+        margin-right: 10%;
+    }
+
+    .shop_box {
+        width: 50%;
+        margin-left: 30%;
+    }
+
+    .shop_box h3 {
+        font-size: 25px;
+        margin-left: 10%;
+    }
+
+    .shop_box img {
+        height: 20%;
+    }
+
+    .like_button {
+        margin-left: 50%;
+    }
+
+    /* 詳細ページ */
+    .shop_detail {
+        font-size: 15px;
+        margin-left: 30%;
+    }
+
+    .menu-btn {
+        width: 5%;
+        height: 5%;
+    }
+
+    .shop_image {
+        width: 70%;
+        margin-left: 13%;
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 30vw;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: white;
+    }
+
+    .detail_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .detail_title h1 {
+        text-align: center;
+    }
+
+    .shop_reserve {
+        width: 100%;
+    }
+
+    .reserve_start {
+        position: absolute;
+        top: 20%;
+
+    }
+
+    .reserve {
+        width: 80%;
+        height: 450px;
+        margin-top: 10%;
+        position: relative;
+    }
+
+    .reserve_start {
+        height: 50px;
+        margin-top: 60%;
+    }
+
+    .mt-4 {
+        margin-right: 20%;
+    }
+
+    .mt-4 button {
+        width: 40%;
+    }
+
+    .register_message {
+        margin-right: 30%;
+    }
+
+    /* マイページ */
+
+    .information {
+        width: 60%;
+        margin: auto;
+    }
+
+    .like_reserve {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .information_title {
+        margin: auto;
+    }
+
+    .login_user {
+        margin-left: 40%;
+    }
+
+    .reserve_menu {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .reserve_delete {
+        position: absolute;
+        bottom: 97.3%;
+        right: 30%;
+    }
+
+    .reserve_box {
+        width: 50%;
+        height: 400px;
+        margin-top: 10%;
+        left: 15%;
+        position: relative;
+    }
+
+    .likes_button {
+        position: absolute;
+        top: 70%;
+        margin-left: 30%;
+        right: 10%;
+    }
+
+    .like_shops {
+        margin: auto;
+        top: 85%;
+        left: 43%;
+        position: absolute;
+    }
+
+    .review_shop {
+        margin-left: 15%;
+    }
+
+    .shops_button {
+        margin-top: 8%;
+    }
+}

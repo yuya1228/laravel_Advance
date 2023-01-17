@@ -1,0 +1,41 @@
+# circleCIのバージョン指定
+version: 2
+
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.4-node-browsers
+    steps:
+      - checkout
+      - run: sudo composer self-update --1
+      - run: composer install -n --prefer-dist
+      - run: npm ci
+      - run: npm run dev
+      - run:
+          name: php test
+          command: vendor/bin/phpunit
+
+# EC2にSSH接続し、デプロイを実行
+  deploy:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+      # CircleCIに登録した秘密鍵を呼び出す。
+      - add_ssh_keys
+      - run: ssh ${USER_NAME}@${HOST_NAME} -p ${SSH_PORT} 'cd xxxxx && git pull origin main && docker-compose restart && docker-compose run python ./manage.py migrate'
+
+# テストが成功した場合のみ、deployを実行するようにします。
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          # mainブランチにpushされた場合のみdeployするようにする。
+          filters:
+            branches:
+              only: main
