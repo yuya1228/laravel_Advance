@@ -1,19 +1,19 @@
 <?php
 
-use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Admin\Auth\NewPasswordController;
-use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Admin\Auth\RegisteredUserController;
-use App\Http\Controllers\Admin\Auth\VerifyEmailController;
-use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Store\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Store\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Store\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Store\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Store\Auth\NewPasswordController;
+use App\Http\Controllers\Store\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Store\Auth\RegisteredUserController;
+use App\Http\Controllers\Store\Auth\VerifyEmailController;
+use App\Http\Controllers\Store\HomeController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('admin.welcome');
+    return view('store.welcome');
 })->name('welcome');
 
 Route::middleware('guest')->group(function () {
@@ -41,7 +41,7 @@ Route::middleware('guest')->group(function () {
 });
 
 
-Route::middleware('auth:admins')->group(function () {
+Route::middleware('auth:stores')->group(function () {
     Route::get('dashboard', [HomeController::class, 'index'])
         ->name('dashboard');
 
@@ -63,9 +63,9 @@ Route::middleware('auth:admins')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-});
 
-Route::middleware('auth:admins')->group(function () {
-    Route::get('/page', [AdminController::class, 'admin'])->name('admin.page');
-    Route::post('/page', [AdminController::class, 'store'])->name('admin.store');
+    //店舗情報
+    Route::get('/shop_store', [ShopController::class, 'shop_store'])->name('shop_store');
+    Route::post('/store/{id}', [ShopController::class, 'store'])->name('store');
+    Route::post('/shop_store/create', [ShopController::class, 'store_create'])->name('store_create');
 });

@@ -25,14 +25,13 @@
                         @csrf
                         <button type="submit" class="reserve_delete">
                             <i class="fa-regular fa-circle-xmark"
-                                style="color:white; font-size:25px; margin-bottom:10%;"></i>
+                                style="color:white; font-size:25px;position:absolute; bottom:60px;"></i>
                         </button>
                     </form>
                 </div>
 
                 <form action=" {{ route('user.update',$shop_user->id) }}" method="post">
                     @csrf
-                    @method('PUT')
                     <table class="reserve_status">
                         <tr>
                             <th>Shop</th>

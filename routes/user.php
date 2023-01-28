@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ShopController;
@@ -38,6 +37,8 @@ Route::post('review', [ReviewController::class, 'review'])->name('review.shop');
 //メール送信機能
 Route::get('/mail/send', [MailController::class, 'send']);
 Route::get('/mail/sendMail', [MailController::class, 'sendmail']);
+
+Route::get('/thanks', [RegisteredUserController::class, 'thanks'])->name('thanks');
 
 
 Route::middleware('guest')->group(function () {
@@ -105,4 +106,12 @@ Route::middleware('auth:users')->group(function () {
 
     //決済機能
     Route::post('/pay', [PaymentController::class, 'pay']);
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+        require __DIR__ . '/admin.php';
+    });
+
+    Route::prefix('store')->name('store.')->group(function () {
+        require __DIR__ . '/store.php';
+    });
 });

@@ -22,7 +22,6 @@ class UserController extends Controller
         $like = $query->get();
 
         $shop_users = Shop_user::where('user_id', \Auth::user()->id)->get();
-
         return view('user.mypage',compact('shop_users','like'));
     }
 

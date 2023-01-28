@@ -69,4 +69,43 @@ class ShopController extends Controller
         return view('shops.done');
     }
 
+// 店舗代表者ページ
+    public function shop_store()
+    {
+        $query = Shop_user::query();
+        $query->join('shops', 'shop_users.shop_id', '=', 'shops.id')->get();
+        $shop_users = $query->get();
+
+        $shops = Shop::all();
+        $shop_users = Shop_user::where('user_id', \Auth::user()->id)->get();
+
+        return view('shop_store', compact('shops','shop_users'));
+    }
+
+    public function store_create(Request $request)
+    {
+        $shops = new Shop();
+        $shops->area_id = $request->input('area_id');
+        $shops->genre_id = $request->input('genre_id');
+        $shops->shop_name = $request->input('shop_name');
+        $shops->store_overview = $request->input('store_overview');
+        $image = $request->file('image');
+        $path = $image->store('images','public' );
+        dd($path);
+        $shops->save();
+        return redirect()->route('store.shop_store');
+    }
+
+    public function store(Request $request, $id)
+    {
+        $shops = Shop::find($id);
+        $shops->update([
+            "shop_name" => $request->shop_name,
+            "area_id" => $request->area_id,
+            "genre_id"=> $request->genre_id,
+            "store_overview" => $request->store_overview,
+        ]);
+
+        return redirect()->route('store.shop_store');
+    }
 }

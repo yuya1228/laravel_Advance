@@ -4,13 +4,13 @@ namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
 use Closure;
-use Illuminate\Http\Request; //add
 use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
     private const GUARD_ADMIN = 'admins';
     private const GUARD_USER = 'users';
+    private const GUARD_STORE = 'stores';
 
     /**
      * Handle an incoming request.
@@ -37,6 +37,10 @@ class RedirectIfAuthenticated
         }
         if (Auth::guard(self::GUARD_USER)->check() && $request->routeIs('user.*')) {
             return redirect(RouteServiceProvider::HOME);
+        }
+
+        if (Auth::guard(self::GUARD_STORE)->check() && $request->routeIs('store.*')){
+            return redirect(RouteServiceProvider::STORE_HOME);
         }
 
 

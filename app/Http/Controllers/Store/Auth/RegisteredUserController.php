@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\User\Auth;
+namespace App\Http\Controllers\Store\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,13 +18,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('user.auth.register');
+        return view('store.auth.register');
     }
 
-    public function thanks()
-    {
-        return view('user.auth.thanks');
-    }
     /**
      * Handle an incoming registration request.
      *
@@ -37,11 +33,11 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Store::class],
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        $user = Store::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -49,6 +45,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('thanks');
+        return redirect('store/shop_store');
     }
 }

@@ -41,6 +41,8 @@ class LoginRequest extends FormRequest
         //add
         if ($this->routeIs('admin.*')) {
             $guard = 'admins';
+        } elseif ($this->routeIs('store.*')) {
+            $guard = 'stores';
         } else {
             $guard = 'users';
         }
@@ -66,7 +68,7 @@ class LoginRequest extends FormRequest
      */
     public function ensureIsNotRateLimited()
     {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
         }
 
@@ -89,6 +91,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey()
     {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('email')) . '|' . $this->ip());
     }
 }

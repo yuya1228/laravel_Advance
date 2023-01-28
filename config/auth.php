@@ -56,6 +56,11 @@ return [
             'driver'=>'session',
             'provider'=>'admins',
         ],
+
+        'stores'=>[
+            'driver'=>'session',
+            'provider'=>'stores',
+        ],
     ],
 
     /*
@@ -85,6 +90,11 @@ return [
             'driver'=>'eloquent',
             'model'=>App\Models\Admin::class,
         ],
+
+        'stores'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Store::class,
+        ],
     ],
 
     /*
@@ -113,6 +123,13 @@ return [
         'admins'=>[
             'provider'=>'admins',
             'table'=>'admin_password_resets',
+            'expire'=>60,
+            'throttle'=>60,
+        ],
+
+        'stores'=>[
+            'provider'=>'stores',
+            'table'=>'store_password_resets',
             'expire'=>60,
             'throttle'=>60,
         ],
