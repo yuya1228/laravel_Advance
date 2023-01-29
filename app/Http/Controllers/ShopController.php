@@ -89,9 +89,8 @@ class ShopController extends Controller
         $shops->genre_id = $request->input('genre_id');
         $shops->shop_name = $request->input('shop_name');
         $shops->store_overview = $request->input('store_overview');
-        $image = $request->file('image');
-        $path = $image->store('images','public' );
-        dd($path);
+        $filename= $request->file('image')->getClientOriginalName();
+        $shops->image = $request->storeAs('images'.$filename);
         $shops->save();
         return redirect()->route('store.shop_store');
     }

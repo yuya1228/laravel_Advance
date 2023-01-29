@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('user.welcome');
 })->name('welcome');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth:user','verified'])->name('dashboard');
+
 //ショップページ
 Route::get('/', [ShopController::class, 'index'])->name('shops.index');
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shops.detail');
@@ -106,12 +110,5 @@ Route::middleware('auth:users')->group(function () {
 
     //決済機能
     Route::post('/pay', [PaymentController::class, 'pay']);
-
-    Route::prefix('admin')->name('admin.')->group(function () {
-        require __DIR__ . '/admin.php';
-    });
-
-    Route::prefix('store')->name('store.')->group(function () {
-        require __DIR__ . '/store.php';
-    });
 });
+

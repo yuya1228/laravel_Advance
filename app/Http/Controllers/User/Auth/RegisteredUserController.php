@@ -23,7 +23,7 @@ class RegisteredUserController extends Controller
 
     public function thanks()
     {
-        return view('user.auth.thanks');
+        return view('thanks');
     }
     /**
      * Handle an incoming registration request.
