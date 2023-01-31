@@ -19,7 +19,10 @@
     </button>
     <div class="menu">
         <div class="menu__item"><a href="{{ url('/') }}">HOME</a></div>
-        <div class="menu__item"><a href="{{ route('user.logout') }}">Logout</a></div>
+         <form method="POST" action="{{ route('user.logout') }}">
+            @csrf
+        <div class="menu__item"><input type="submit" value="Logout"></div>
+         </form>
         <div class="menu__item"><a href="{{ url('/mypage') }}">Mypage</a></div>
         <div class="menu__item"><a href="{{ url('/review') }}">Review</a></div>
     </div>

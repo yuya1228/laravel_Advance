@@ -1,66 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+√
+# 飲食店の予約アプリ
+<img width="1418" alt="shop" src="https://user-images.githubusercontent.com/110316231/215603874-38ec267f-6fb9-4c05-a429-3bc61a8bb8ce.png">
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 作成した目的
+模擬案件作成のため
 
-## About Laravel
+## アプリケーションURL
+- https://github.com/yuya1228/laravel_Advance.git
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##　機能一覧
+- 会員登録
+- ログイン
+- ログアウト
+- ユーザー情報取得
+- ユーザー飲食店お気に入り一覧取得
+- ユーザー飲食店予約情報取得
+- 飲食店一覧取得
+- 飲食店詳細取得
+- 飲食店お気に入り追加
+- 飲食店お気に入り削除
+- 飲食店予約情報追加
+- 飲食店予約情報削除
+- エリア検索
+- ジャンル検索
+- 店名で検索する
+- 予約変更機能
+- 権限機能
+- 評価機能
+- メール認証機能
+- ストレージ機能
+- QRコード
+- 決済機能
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 使用技術
+ - Laravel Framework 9.47.0
+ - PHP 8.1.10
+## テーブル設計
+<img width="1485" alt="table" src="https://user-images.githubusercontent.com/110316231/215605198-23ec76e2-cf39-462f-8024-ca8f6d23c65d.png">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ER図
+<img width="925" alt="ER" src="https://user-images.githubusercontent.com/110316231/215604632-b52e8356-c3f9-4005-ae61-4a8a88676199.png">
 
-## Learning Laravel
+## 環境構築
+### MAMPをインストールする
+-① MAMPの公式ページにアクセスをし、MAMPダウンロードページからファイルをダウンロードします。
+インストールが完了すると、MAMPアプリケーションが使用できるようになります。
+<img width="1245" alt="MAMP" src="https://user-images.githubusercontent.com/110316231/215863831-c29cdf9c-1ab7-47ca-a479-16d203cfe57f.png">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### composerをインストールする
+<img width="366" alt="composer" src="https://user-images.githubusercontent.com/110316231/215870900-dfa7d4ef-946b-4a95-ac85-ea4377163b5c.png">
+① composerを公式サイト
+トのダウンロード公式サイトからダウンロードする。
+- $ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+- $ php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+- $ php composer-setup.php
+- $ php -r "unlink('composer-setup.php');"
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+② composerのインストールにあたって、インストールされているか確認します。
+ターミナルを開いて以下のコマンドを実行し、ディレクトリを移動します。
+- cd /Applications/MAMP/htdocs
 
-## Laravel Sponsors
+② 移動ができたら、以下のコマンドを実行します。
+- composer --version
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+コマンド実行後にバージョンが表示されて入ればcomposerのインストール済みです。
 
-### Premium Partners
+### Laraveでプロジェクト作成
+① 以上の手順でLaravelを使用する準備ができました。
+ターミナルで下記のコマンドを実行しプロジェクトを作成します。
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- composer create-project "laravel/laravel" laravel
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+これでLaravelのプロジェクトが作成できました。
+## アカウントの種類
+- テストユーザー
+- 管理者
+- 店舗代表者

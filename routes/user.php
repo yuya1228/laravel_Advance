@@ -42,6 +42,7 @@ Route::post('review', [ReviewController::class, 'review'])->name('review.shop');
 Route::get('/mail/send', [MailController::class, 'send']);
 Route::get('/mail/sendMail', [MailController::class, 'sendmail']);
 
+//登録完了ページ
 Route::get('/thanks', [RegisteredUserController::class, 'thanks'])->name('thanks');
 
 
@@ -92,7 +93,6 @@ Route::middleware('auth:users')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -111,4 +111,5 @@ Route::middleware('auth:users')->group(function () {
     //決済機能
     Route::post('/pay', [PaymentController::class, 'pay']);
 });
+
 

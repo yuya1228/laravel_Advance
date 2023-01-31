@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
         $user = Store::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
         ]);
 
         Auth::login($user);
