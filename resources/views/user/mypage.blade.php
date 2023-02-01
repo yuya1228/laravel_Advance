@@ -25,13 +25,14 @@
                         @csrf
                         <button type="submit" class="reserve_delete">
                             <i class="fa-regular fa-circle-xmark"
-                                style="color:white; font-size:25px;position:absolute; bottom:60px;"></i>
+                                style="color:white; font-size:25px;position:absolute; bottom:70px;"></i>
                         </button>
                     </form>
                 </div>
 
-                <form action=" {{ route('user.update',$shop_user->id) }}" method="post">
+                <form action=" {{ route('user.update', $shop_user->id) }}" method="post">
                     @csrf
+                    @method('PUT')
                     <table class="reserve_status">
                         <tr>
                             <th>Shop</th>
@@ -53,24 +54,26 @@
                             <th>予約日時変更</th>
                             <td><input type="submit" value="予約更新"></td>
                         </tr>
-                        <form action="{{url('/pay')}}" method="POST">
-                            @csrf
-                            @method('PUT')
+                    </table>
+                        <td>
+                    @if (session('message'))
+                        <div class="alert alert-success">{{ session('message') }}</div>
+                    @endif
+                </td>
+                </form>
+
+                <form action="{{ url('/pay') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <table>
                         <tr>
-                            <th>決済</th>
-                            <td><script
-                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="{{ env('STRIPE_KEY') }}"
-                        ï            data-amount="1000"
-                                    data-name="お支払い画面"
-                                    data-label="決済"
-                                     data-description="現在はデモ画面です"
-                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                    data-locale="auto"
-                                    data-currency="JPY">
-                             </script></td>
+                            <td>
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" ï
+                                    data-amount="15000" data-name="お支払い画面" data-label="決済" data-description="現在はデモ画面です"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
+                                </script>
+                            </td>
                         </tr>
-                        </form>
                     </table>
                 </form>
             @endforeach
@@ -100,6 +103,6 @@
                     </span>
                 </div>
             </div>
-            @endforeach
+        @endforeach
     </div>
 @endsection

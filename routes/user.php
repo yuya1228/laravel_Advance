@@ -110,9 +110,6 @@ Route::middleware('auth:users')->group(function () {
     //評価機能
     Route::get('review', [ReviewController::class, 'index'])->name('review');
     Route::post('review', [ReviewController::class, 'review'])->name('review.shop');
-
-    //決済機能
-    Route::post('/pay', [PaymentController::class, 'pay']);
 });
 
 

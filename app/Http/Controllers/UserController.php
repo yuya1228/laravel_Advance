@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Shop_user;
 use App\Models\Like;
@@ -34,7 +33,7 @@ class UserController extends Controller
             "sum_people" => $request->sum_people,
         ]);
 
-        return redirect()->route("user.user.mypage");
+        return redirect()->route("user.user.mypage")->with('message', '予約情報を更新しました。');
     }
 
     public function destroy($id)
