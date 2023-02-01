@@ -267,7 +267,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .reserve_start {
     padding: 5% 50%;
-    margin-top: 30%;
+    margin-top: 40%;
     border: none;
     border-radius: 0px 0px 5px 5px;
     background-color: blue;
