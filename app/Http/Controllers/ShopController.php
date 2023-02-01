@@ -43,6 +43,7 @@ class ShopController extends Controller
         return view('shops.index',compact('items','shops', 'keyword','genres','areas'));
     }
 
+    //店舗詳細ページ
     public function detail($id)
     {
         $shops = Shop::find($id);
@@ -89,10 +90,9 @@ class ShopController extends Controller
         $shops->genre_id = $request->input('genre_id');
         $shops->shop_name = $request->input('shop_name');
         $shops->store_overview = $request->input('store_overview');
-        $filename= $request->file('image')->getClientOriginalName();
-        $shops->image = $request->storeAs('images'.$filename);
+        $shops->image = $request->file('image');
         $shops->save();
-        return redirect()->route('store.shop_store');
+        return redirect()->route('store.shop_store')->with('message', '店舗を作成しました。');
     }
 
     public function store(Request $request, $id)

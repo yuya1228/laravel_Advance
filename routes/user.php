@@ -5,6 +5,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\User\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\User\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\User\Auth\EmailVerificationNotificationController;
@@ -45,6 +46,8 @@ Route::get('/mail/sendMail', [MailController::class, 'sendmail']);
 //登録完了ページ
 Route::get('/thanks', [RegisteredUserController::class, 'thanks'])->name('thanks');
 
+//決済機能
+Route::PUT('/pay', [PaymentController::class, 'pay'])->name('stripe.pay');
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])

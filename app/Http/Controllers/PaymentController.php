@@ -10,7 +10,7 @@ class PaymentController extends Controller
 {
     public function pay(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET')); //シークレットキー
+        Stripe::setApiKey(env('STRIPE_SECRET')); 
 
         $charge = Charge::create(array(
             'amount' => 100,

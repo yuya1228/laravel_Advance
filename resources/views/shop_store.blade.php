@@ -58,6 +58,11 @@
                 <td>
                     <input type="submit" value="店舗作成">
                 </td>
+                 <td>
+                    @if (session('message'))
+                        <div class="alert alert-success">{{ session('message') }}</div>
+                    @endif
+                </td>
             </tr>
         </table>
     </form>

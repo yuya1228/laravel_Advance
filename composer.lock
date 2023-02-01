@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c82cac37061288591ad82d247f87d48",
+    "content-hash": "94406a06ef1465e6e221352b6434baf0",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1489,16 +1489,16 @@
         },
         {
             "name": "laravel/cashier",
-            "version": "v14.7.0",
+            "version": "v14.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/cashier-stripe.git",
-                "reference": "498453a1df770175ffbc084e46569a54b3ac1474"
+                "reference": "f46db8418b03dc19b515f5bc0ea707a5ea470329"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/cashier-stripe/zipball/498453a1df770175ffbc084e46569a54b3ac1474",
-                "reference": "498453a1df770175ffbc084e46569a54b3ac1474",
+                "url": "https://api.github.com/repos/laravel/cashier-stripe/zipball/f46db8418b03dc19b515f5bc0ea707a5ea470329",
+                "reference": "f46db8418b03dc19b515f5bc0ea707a5ea470329",
                 "shasum": ""
             },
             "require": {
@@ -1566,7 +1566,7 @@
                 "laravel",
                 "stripe"
             ],
-            "time": "2023-01-10T18:19:38+00:00"
+            "time": "2023-01-31T15:31:52+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3799,16 +3799,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v10.3.0",
+            "version": "v10.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "417d66a5b27a5ec53a706a346b05bfe170043d52"
+                "reference": "87def896d9a2e2914871408277d67432cb112f71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/417d66a5b27a5ec53a706a346b05bfe170043d52",
-                "reference": "417d66a5b27a5ec53a706a346b05bfe170043d52",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/87def896d9a2e2914871408277d67432cb112f71",
+                "reference": "87def896d9a2e2914871408277d67432cb112f71",
                 "shasum": ""
             },
             "require": {
@@ -3852,7 +3852,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-12-22T20:07:30+00:00"
+            "time": "2023-01-19T19:18:38+00:00"
         },
         {
             "name": "symfony/console",

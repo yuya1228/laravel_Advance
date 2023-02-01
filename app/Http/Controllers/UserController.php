@@ -34,7 +34,7 @@ class UserController extends Controller
             "sum_people" => $request->sum_people,
         ]);
 
-        return redirect()->route("user.mypage");
+        return redirect()->route("user.user.mypage");
     }
 
     public function destroy($id)

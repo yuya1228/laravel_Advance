@@ -53,6 +53,24 @@
                             <th>予約日時変更</th>
                             <td><input type="submit" value="予約更新"></td>
                         </tr>
+                        <form action="{{url('/pay')}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                        <tr>
+                            <th>決済</th>
+                            <td><script
+                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="{{ env('STRIPE_KEY') }}"
+                        ï            data-amount="1000"
+                                    data-name="お支払い画面"
+                                    data-label="決済"
+                                     data-description="現在はデモ画面です"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto"
+                                    data-currency="JPY">
+                             </script></td>
+                        </tr>
+                        </form>
                     </table>
                 </form>
             @endforeach
