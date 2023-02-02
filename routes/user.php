@@ -17,14 +17,6 @@ use App\Http\Controllers\User\Auth\VerifyEmailController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('user.welcome');
-})->name('welcome');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth:user','verified'])->name('dashboard');
-
 //ショップページ
 Route::get('/', [ShopController::class, 'index'])->name('shops.index');
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shops.detail');
