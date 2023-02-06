@@ -43,6 +43,28 @@
 <img width="925" alt="ER" src="https://user-images.githubusercontent.com/110316231/215604632-b52e8356-c3f9-4005-ae61-4a8a88676199.png">
 
 ## 環境構築
+### プロジェクトをGit cloneする
+- ① ターミナルで下記のコマンドを打ちgit cloneをしてプロジェクトをローカルに落とす。
+- $ git clone [LaravelプロジェクトのURL]
+
+- ② vendorディレクトリがないと思うので下記のコマンドをターミナルにて実行します。
+- $ composer update
+
+### .envの作成
+- ① .envファイルを作成していきます。以下のコマンドを実行し、ファイルをコピーします。
+- $ cp .env.example .env
+
+- ② 次に、.envの中のAPP_KEYを発行します。
+- $ php artisan key:generate
+
+- ③ 上記まで完了したら下記のコマンドでキャッシュをクリアします。
+- $ php artisan config:clear
+
+### データベース設定
+- ① データベースの設定をしていきます。下記のコマンドを実行しましょう。
+- $ php artisan migrate
+- ② seed
+
 ### MAMPをインストールする
 -① MAMPの公式ページにアクセスをし、MAMPダウンロードページからファイルをダウンロードします。
 インストールが完了すると、MAMPアプリケーションが使用できるようになります。
@@ -75,6 +97,6 @@
 
 これでLaravelのプロジェクトが作成できました。
 ## アカウントの種類
-- テストユーザー
+- テストユーザー　
 - 管理者
 - 店舗代表者
