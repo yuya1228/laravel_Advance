@@ -63,39 +63,14 @@
 ### データベース設定
 - ① データベースの設定をしていきます。下記のコマンドを実行しましょう。
 - $ php artisan migrate
-- ② seed
 
-### MAMPをインストールする
--① MAMPの公式ページにアクセスをし、MAMPダウンロードページからファイルをダウンロードします。
-インストールが完了すると、MAMPアプリケーションが使用できるようになります。
-<img width="1245" alt="MAMP" src="https://user-images.githubusercontent.com/110316231/215863831-c29cdf9c-1ab7-47ca-a479-16d203cfe57f.png">
+- ② seederファイルがある場合は下記のコマンドも実行してください。
+- $ php artisan db:seed
 
-### composerをインストールする
-<img width="366" alt="composer" src="https://user-images.githubusercontent.com/110316231/215870900-dfa7d4ef-946b-4a95-ac85-ea4377163b5c.png">
-① composerを公式サイト
-トのダウンロード公式サイトからダウンロードする。
-- $ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-- $ php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-- $ php composer-setup.php
-- $ php -r "unlink('composer-setup.php');"
-
-
-② composerのインストールにあたって、インストールされているか確認します。
-ターミナルを開いて以下のコマンドを実行し、ディレクトリを移動します。
-- cd /Applications/MAMP/htdocs
-
-② 移動ができたら、以下のコマンドを実行します。
-- composer --version
-
-コマンド実行後にバージョンが表示されて入ればcomposerのインストール済みです。
-
-### Laraveでプロジェクト作成
-① 以上の手順でLaravelを使用する準備ができました。
-ターミナルで下記のコマンドを実行しプロジェクトを作成します。
-
-- composer create-project "laravel/laravel" laravel
-
-これでLaravelのプロジェクトが作成できました。
+### サーバーを立ち上げる
+- ①ここまで完了したら下記のコマンドを入力しLocalで立ち上げていきます。
+- $ php artisan serve
+- 以上が手順になります。
 ## アカウントの種類
 - テストユーザー　
 - 管理者
